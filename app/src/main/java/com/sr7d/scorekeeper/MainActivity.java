@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -149,12 +150,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void changeColor() {
         if (player1_score > player2_score) {
-            tv_player1_score.setTextColor(Color.parseColor("#7FFF00"));
-//            tv_player2_score.setBackgroundColor(Color.rgb(55,123,90));
-            tv_player2_score.setTextColor(Color.parseColor("#B22222"));
+//            tv_player1_score.setTextColor(ContextCompat.getColor(this, R.color.color_green));
+            tv_player2_score.setTextColor(Color.rgb(255,255,255));
+            tv_player2_score.setTextColor(ContextCompat.getColor(this, R.color.color_red));
         } else if (player2_score > player1_score) {
-            tv_player1_score.setTextColor(Color.parseColor("#B22222"));
-            tv_player2_score.setTextColor(Color.parseColor("#7FFF00"));
+//            tv_player1_score.setTextColor(Color.parseColor(getString(R.string.color_red)));
+            tv_player1_score.setTextColor(ContextCompat.getColor(this, R.color.color_red));
+            tv_player2_score.setTextColor(ContextCompat.getColor(this, R.color.color_green));
         } else {
             tv_player1_score.setTextColor(Color.parseColor("#000000"));
             tv_player2_score.setTextColor(Color.parseColor("#000000"));
