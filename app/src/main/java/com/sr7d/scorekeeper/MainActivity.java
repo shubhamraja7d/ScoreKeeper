@@ -4,9 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -15,13 +14,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btn_pl1_correct, btn_pl1_wrong, btn_pl2_correct, btn_pl2_wrong;
-    private TextView tv_player1_score, tv_player2_score, tv_player1_name, tv_player2_name;
     int player1_score, player2_score;
+    private TextView tv_player1_score, tv_player2_score, tv_player1_name, tv_player2_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,15 +149,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void changeColor() {
         if (player1_score > player2_score) {
 //            tv_player1_score.setTextColor(ContextCompat.getColor(this, R.color.color_green));
-            tv_player2_score.setTextColor(Color.rgb(255,255,255));
-            tv_player2_score.setTextColor(ContextCompat.getColor(this, R.color.color_red));
+            tv_player1_score.setTextColor(Color.rgb(0, 255, 0));
+            tv_player2_score.setTextColor(Color.rgb(255, 0, 0));
         } else if (player2_score > player1_score) {
 //            tv_player1_score.setTextColor(Color.parseColor(getString(R.string.color_red)));
-            tv_player1_score.setTextColor(ContextCompat.getColor(this, R.color.color_red));
-            tv_player2_score.setTextColor(ContextCompat.getColor(this, R.color.color_green));
+            tv_player1_score.setTextColor(Color.rgb(255, 0, 0));
+            tv_player2_score.setTextColor(Color.rgb(0, 255, 0));
         } else {
-            tv_player1_score.setTextColor(Color.parseColor("#000000"));
-            tv_player2_score.setTextColor(Color.parseColor("#000000"));
+            tv_player1_score.setTextColor(Color.rgb(0, 0, 0));
+            tv_player2_score.setTextColor(Color.rgb(0, 0, 0));
         }
     }
 
@@ -201,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.new_game_menu:
-                startActivity(new Intent(this,SplashActivity.class));
+                startActivity(new Intent(this, SplashActivity.class));
                 return true;
             case R.id.reset_game_menu:
                 reset_game();
